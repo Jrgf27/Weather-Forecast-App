@@ -73,6 +73,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'weather_app.wsgi.application'
 
+WEATHER_TYPE_CHOICES = [
+    ("current", "Current"),
+    ("minutely", "Minute"),
+    ("hourly", "Hour"),
+    ("daily", "Daily"),
+]
+
+TIME_PER_REQUEST = 10
+
+API_KEY = "e5f16cff87fa4ee0d22a60fcfc396414"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
