@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -82,7 +85,7 @@ WEATHER_TYPE_CHOICES = [
 
 TIME_PER_REQUEST = 10
 
-API_KEY = "e5f16cff87fa4ee0d22a60fcfc396414"
+API_KEY = os.environ.get('WEATHER_API')
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

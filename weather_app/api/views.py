@@ -19,7 +19,7 @@ class HomePage(TemplateView):
     """Weather Application home page class"""
     def get(self, request, *args, **kwargs):
         """Main page view function"""
-
+        print(settings.API_KEY)
         form = WeatherAPICallForm()
         context = {"form":form}
         return render(request, 'home.html', context=context)
