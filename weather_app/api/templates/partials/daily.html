@@ -1,0 +1,45 @@
+<table class="table" style="width: 100%;">
+    <thead>
+      <tr>
+        <th width="10%" scope="col">Days</th>
+        <th width="20%" scope="col">Temperature (kelvin)</th>
+        <th width="20%" scope="col">Pressure (hPa)</th>
+        <th width="20%" scope="col">Humidity (%)</th>
+        <th width="10%" scope="col">Clouds (%)</th>
+        <th width="10%" scope="col">Wind (m/s)</th>
+        <th width="10%" scope="col">UV</th>
+      </tr>
+    </thead>
+</table>
+
+<div style="width:100%; overflow:auto; max-height:500px;">
+    <table class="table">
+        <tbody>
+        {% for data_entry in weather_data %}
+            <tr>
+                <td width="10%">
+                    {{forloop.counter0}}
+                </td>
+                <td width="20%">
+                    {{data_entry.temp.max}}-{{data_entry.temp.min}}
+                </td>
+                <td width="20%">
+                    {{data_entry.pressure}}
+                </td>
+                <td width="20%">
+                    {{data_entry.humidity}}
+                </td>
+                <td width="10%">
+                    {{data_entry.clouds}}
+                </td>
+                <td width="10%">
+                    {{data_entry.wind_speed}}
+                </td>
+                <td width="10%">
+                    {{data_entry.uvi}}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

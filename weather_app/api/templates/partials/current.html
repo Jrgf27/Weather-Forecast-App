@@ -1,0 +1,41 @@
+
+
+<table class="table" style="width: 100%;">
+    <thead>
+      <tr>
+        <th width="20%" scope="col">Temperature (kelvin)</th>
+        <th width="20%" scope="col">Pressure (hPa)</th>
+        <th width="20%" scope="col">Humidity (%)</th>
+        <th width="20%" scope="col">Clouds (%)</th>
+        <th width="10%" scope="col">Wind (m/s)</th>
+        <th width="10%" scope="col">UV</th>
+      </tr>
+    </thead>
+</table>
+
+<div style="width:100%; overflow:auto; max-height:500px;">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td width="20%">
+                    {{weather_data.temp}}
+                </td>
+                <td width="20%">
+                    {{weather_data.pressure}}
+                </td>
+                <td width="20%">
+                    {{weather_data.humidity}}
+                </td>
+                <td width="20%">
+                    {{weather_data.clouds}}
+                </td>
+                <td width="10%">
+                    {{weather_data.wind_speed}}
+                </td>
+                <td width="10%">
+                    {{weather_data.uvi}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

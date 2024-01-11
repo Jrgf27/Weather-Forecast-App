@@ -1,0 +1,25 @@
+<table class="table" style="width: 100%;">
+    <thead>
+      <tr>
+        <th width="50%" scope="col">Minutes</th>
+        <th width="50%" scope="col">Precipitation (mm/h)</th>
+      </tr>
+    </thead>
+</table>
+
+<div style="width:100%; overflow:auto; max-height:500px;">
+    <table class="table">
+        <tbody>
+        {% for data_entry in weather_data %}
+            <tr>
+                <td width="50%">
+                    {{forloop.counter0}}
+                </td>
+                <td width="50%">
+                    {{data_entry.precipitation}}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

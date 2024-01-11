@@ -1,10 +1,11 @@
-<div id = "weather_data">
-    <tr>
-        <td width="20%">
-            Cenas 2
-        </td>
-        <td width="65%">
-            Cenas 1
-        </td>
-    </tr>
+<div id="weather_data">
+    {% if data_type == "current" %}
+        {% include 'partials/current.html'  %}
+    {% elif data_type == "minutely" %}
+        {% include 'partials/minutely.html'  %}
+    {% elif data_type == "hourly" %}
+        {% include 'partials/hourly.html'  %}
+    {% else %}
+        {% include 'partials/daily.html'  %}
+    {% endif %}
 </div>
