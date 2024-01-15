@@ -67,6 +67,11 @@ class HomePage(TemplateView):
                 api_request = requests.get(api_url, timeout=20)
                 if api_request.status_code == 200:
                     data = api_request.json()
+
+                    if data_type in data_types_with_time:
+                        for index, value in enumerate(data[data_type]):
+                            data[data_type][index]["dt"] = str(datetime.datetime.utcfromtimestamp(data[data_type][index]["dt"]))
+
                     try:
                         weather_data = WeatherData(
                             latitude = latitude,
@@ -79,10 +84,6 @@ class HomePage(TemplateView):
                         return HttpResponse('API did not have data for that current weather type')
                 else:
                     return HttpResponse('Unable to connect to weather API')
-
-            if data_type in data_types_with_time:
-                for index in enumerate(weather_data.weather_data):
-                    weather_data.weather_data[index[0]]["dt"] = datetime.datetime.utcfromtimestamp(weather_data.weather_data[index[0]]["dt"])
 
             context = {
                 "weather_data" : weather_data.weather_data,
