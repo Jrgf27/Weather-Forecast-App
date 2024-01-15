@@ -9,10 +9,13 @@ from django.utils import timezone
 from django.views.generic import TemplateView
 from django.http.response import HttpResponse
 
+import datetime
 import requests
 
 from .forms import WeatherAPICallForm
 from .models import WeatherData
+
+data_types_with_time = ["minutely", "hourly", "daily"]
 
 # Create your views here.
 class HomePage(TemplateView):
@@ -76,6 +79,10 @@ class HomePage(TemplateView):
                         return HttpResponse('API did not have data for that current weather type')
                 else:
                     return HttpResponse('Unable to connect to weather API')
+
+            if data_type in data_types_with_time:
+                for index in enumerate(weather_data.weather_data):
+                    weather_data.weather_data[index[0]]["dt"] = datetime.datetime.utcfromtimestamp(weather_data.weather_data[index[0]]["dt"])
 
             context = {
                 "weather_data" : weather_data.weather_data,

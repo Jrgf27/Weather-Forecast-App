@@ -13,7 +13,7 @@
         {% for data_entry in weather_data %}
             <tr>
                 <td width="50%">
-                    {{forloop.counter0}}
+                    {{data_entry.dt}}
                 </td>
                 <td width="50%">
                     {{data_entry.precipitation}}
@@ -23,3 +23,18 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function convertUnixToUTC(your_unix_timestamp) {
+        // Convert Unix timestamp to UTC time
+        const utcTime = new Date(your_unix_timestamp * 1000); // JavaScript uses milliseconds, so multiply by 1000
+
+        // Format UTC time as a string (you can customize the format as needed)
+        const formattedUtcTime = utcTime.toISOString().replace('T', ' ').replace(/\.\d{3}Z$/, ' UTC');
+
+        // Return the formatted UTC time
+        return formattedUtcTime;
+    }
+
+
+</script>

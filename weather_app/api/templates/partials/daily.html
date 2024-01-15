@@ -18,7 +18,7 @@
         {% for data_entry in weather_data %}
             <tr>
                 <td width="10%">
-                    {{forloop.counter0}}
+                    {{data_entry.dt}}
                 </td>
                 <td width="20%">
                     {{data_entry.temp.max}}-{{data_entry.temp.min}}
